@@ -1,0 +1,14 @@
+<div class="row">
+    <div class="col-6">
+        <br>
+        <br>
+        <datetime-from-to (ngFrom)="from=$event" (ngTo)="to=$event"></datetime-from-to>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <p *ngIf="from||to">
+            {{from | date: 'yyyy-MM-dd HH:mm'}}~{{to | date}}
+        </p>
+    </div>
+</div>

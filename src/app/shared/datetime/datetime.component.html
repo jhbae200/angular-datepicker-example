@@ -1,0 +1,28 @@
+<ng-template #timeContent>
+    <div class="row align-items-center">
+        <div class="col">
+            <ngb-timepicker [(ngModel)]="time" [hourStep]="1" [minuteStep]="30"
+                            (ngModelChange)="setTimeText()"></ngb-timepicker>
+        </div>
+    </div>
+</ng-template>
+<div class="row">
+    <div class="col-7">
+        <div class="input-group">
+            <input class="form-control" placeholder="YYYY-MM-DD"
+                   name="date" [(ngModel)]="date" ngbDatepicker #datePicker="ngbDatepicker" (ngModelChange)="updateDatetime()">
+            <div class="input-group-addon" (click)="datePicker.toggle()" [ngClass]="{active: datePicker.isOpen()}">
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="input-group">
+            <input class="form-control" #timePicker="ngbPopover" [ngbPopover]="timeContent" placement="bottom"
+                   triggers="none" [(ngModel)]="timeText" (ngModelChange)="setTime()" placeholder="HH:RR">
+            <div class="input-group-addon" (click)="timePickerToggle(timePicker)" [ngClass]="{active: timePicker.isOpen()}">
+                <i class="fa fa-clock-o" aria-hidden="true"></i>
+            </div>
+        </div>
+    </div>
+</div>
