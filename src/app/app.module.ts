@@ -5,20 +5,19 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import {AppComponent} from './app.component';
 import {DatetimeComponent} from './shared/datetime/datetime.component';
-import {DatetimeFromToComponent} from './shared/datetime-from-to/datetime-from-to.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
         FormsModule,
+        ReactiveFormsModule,
         NgbModule.forRoot()
     ],
     declarations: [
         AppComponent,
-        DatetimeComponent,
-        DatetimeFromToComponent
+        DatetimeComponent
     ],
     bootstrap: [AppComponent]
 })

@@ -1,14 +1,33 @@
-<div class="row">
-    <div class="col-6">
-        <br>
-        <br>
-        <datetime-from-to (ngFrom)="from=$event" (ngTo)="to=$event"></datetime-from-to>
+<form [formGroup]="form">
+    <div class="row">
+        <div class="col-6 form-group" [ngClass]="{ 'has-danger': form.errors}">
+            <div class="row">
+                <div class="col" [ngClass]="{ 'has-danger': isValid(form.controls['startTime']) }">
+                    <datetimepicker [(ngModel)]="startTime"
+                                    formControlName="startTime"></datetimepicker>
+                    <div class="form-control-feedback" [hidden]="!isValid(form.controls['startTime'])">
+                        {{form.controls['startTime'].errors | json}}
+                    </div>
+                </div>
+                ~
+                <div class="col" [ngClass]="{ 'has-danger': isValid(form.controls['endTime']) }">
+                    <datetimepicker [(ngModel)]="endTime"
+                                    formControlName="endTime"></datetimepicker>
+                    <div class="form-control-feedback" [hidden]="!isValid(form.controls['endTime'])">
+                        {{form.controls['endTime'].errors | json}}
+                    </div>
+                </div>
+            </div>
+            <div class="form-control-feedback" [hidden]="!form.errors">
+                시작일이 종료일보다 큽니다.
+            </div>
+        </div>
     </div>
-</div>
+</form>
 <div class="row">
     <div class="col">
-        <p *ngIf="from||to">
-            {{from | date: 'yyyy-MM-dd HH:mm'}}~{{to | date}}
+        <p *ngIf="startTime||endTime">
+            {{startTime | date: 'yyyy-MM-dd HH:mm'}}~{{endTime | date: 'yyyy-MM-dd HH:mm'}}
         </p>
     </div>
 </div>

@@ -10,7 +10,7 @@
     <div class="col-7">
         <div class="input-group">
             <input class="form-control" placeholder="YYYY-MM-DD"
-                   name="date" [(ngModel)]="date" ngbDatepicker #datePicker="ngbDatepicker" (ngModelChange)="updateDatetime()">
+                   [(ngModel)]="date" ngbDatepicker #datePicker="ngbDatepicker" (ngModelChange)="updateDatetime()">
             <div class="input-group-addon" (click)="datePicker.toggle()" [ngClass]="{active: datePicker.isOpen()}">
                 <i class="fa fa-calendar" aria-hidden="true"></i>
             </div>
@@ -18,9 +18,9 @@
     </div>
     <div class="col">
         <div class="input-group">
-            <input class="form-control" #timePicker="ngbPopover" [ngbPopover]="timeContent" placement="bottom"
+            <input class="form-control" #timePopover="ngbPopover" [ngbPopover]="timeContent" placement="bottom"
                    triggers="none" [(ngModel)]="timeText" (ngModelChange)="setTime()" placeholder="HH:RR">
-            <div class="input-group-addon" (click)="timePickerToggle(timePicker)" [ngClass]="{active: timePicker.isOpen()}">
+            <div class="input-group-addon" (click)="timePopoverToggle(timePopover)" [ngClass]="{active: timePopover.isOpen()}">
                 <i class="fa fa-clock-o" aria-hidden="true"></i>
             </div>
         </div>
